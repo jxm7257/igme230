@@ -66,14 +66,16 @@ p{
 
 h2{
     color:rgb(18, 126, 93);
-    font-family: 'Open Sans', sans-serif;
-    font-weight:600;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:700;
     
 }
 
 h3{
     color:rgb(18, 126, 93);
     font-size:16px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight:700;
 }
 
 /*image properties that round corers, set the size, cener it, give it top and bottom margins*/
@@ -93,6 +95,14 @@ img.me{
     .flex-container{
         display:flex;
         flex-direction:column;
+        margin-top:88px;
+        
+    }
+
+    /* giving a little more margins between the stacked divs */
+    .projects{
+        margin-top:44px;
+        
     }
 
 }
