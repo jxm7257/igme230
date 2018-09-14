@@ -86,3 +86,11 @@ img.me{
 }
 
 
+/* media query for phone that changes the display of the flexbox */
+@media only screen and (max-width:600px){
+    .flex-container{
+        flex-direction:column;
+    }
+
+}
+
