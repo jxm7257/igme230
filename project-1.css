@@ -66,6 +66,8 @@ p{
 
 h2{
     color:rgb(18, 126, 93);
+    font-family: 'Open Sans', sans-serif;
+    font-weight:600;
     
 }
 
@@ -87,8 +89,9 @@ img.me{
 
 
 /* media query for phone that changes the display of the flexbox */
-@media only screen and (max-width:600px){
+@media only screen and (max-width:800px){
     .flex-container{
+        display:flex;
         flex-direction:column;
     }
 
