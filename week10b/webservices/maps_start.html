@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Google Maps API Example</title>
+
+  <script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyC1QUsSq3K3lNhCiW9vy864hg3pn0HKkIw"></script>
+
+  <script>
+    "use strict";
+    if ("geolocation" in navigator) {   // check to see if the user allowed location access
+
+      //use browser's Geolocation API to get current position
+      navigator.geolocation.getCurrentPosition(function (position) {
+
+        // pass it to a Google Maps API method to get the Lat/Long
+        var latlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+        // use a Google Maps method to set the options for the map, including Lat/Long 
+        var myOptions = {
+          zoom: 8,
+          center: latlng,
+          mapTypeId: google.maps.MapTypeId.TERRAIN,
+          disableDefaultUI: true
+        }
+
+        // create a new map with the specified options (uses deprecated getElementByID; could use querySelector instead)
+        var myMap = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        var myMarker = new google.maps.Marker({ //constructor for a new map that makes a new map using the myMap variable, uses your latitude and longitude, and adds the icon at your location
+         position: latlng,
+         icon: "baseline-directions_walk-24px.svg",
+         map: myMap
+       });
+       var contentString = '<div id="content"><h2 id="firstHeading" class="firstHeading">I Did It!</h2><p>This is my very own custom info window.</p></div>'; //creates a div with an h2 and a paragraph string 
+       var myInfowindow = new google.maps.InfoWindow({ //contructor to create an info window with the contentstring variable in it (which is the div with the text)
+       content: contentString
+       });
+       myMarker.addListener('click', function() { //when my marker (aka the icon) is clicked, run this function
+       myInfowindow.open(myMap, myMarker); //opens the info window on the map, at the marker location
+      });
+    });
+
+    } else {  // alternate content if the browser couldn't get position (old browser, or user refused)
+      var para = document.createElement('p');
+      para.innerHTML = 'Argh, no geolocation!';
+      document.body.appendChild(para);
+    }
+
+  </script>
+  <style>
+    #map_canvas {
+      width: 600px;
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Google Maps API Example Exercise</h1>
+  <div id="map_canvas"></div>
+</body>
+
+</html>
