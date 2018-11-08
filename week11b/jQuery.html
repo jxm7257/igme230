@@ -1,0 +1,51 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Jquery 1 </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jquery library link -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style> 
+        #navpanel {
+            background-color:cadetblue;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+
+</head>
+<body>
+
+    <button id="show">Show</button><button id = "hide">Hide</button>
+    <div id = "navpanel">
+        <ul>
+            <li>link 1</li>
+            <li>link 2</li>
+            <li>link 3</li>
+        </ul>
+    </div>
+
+    <script>
+        // selecting the show
+        // attaching an event handler (on click)
+        // run the function specified below (anonymous function)
+        // the function is going to hide the navpanel
+        // number in hide is the number of miliseconds that it will take for the action to execute
+
+            $("#hide").click(function () {
+                $("#navpanel").hide(900);
+            });
+
+// does the same as above but hides it
+            $("#show").click(function () {
+                $("#navpanel").show(900);
+            });
+    
+    </script>
+    
+</body>
+</html>
