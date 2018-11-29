@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Week 12 Interactivity Exercise</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="jquery.slidereveal.min.js"></script>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body,
+        html {
+            padding: 0;
+            margin: 0;
+        }
+
+       #navpanel {
+            display: grid;
+            grid-template-columns: 100px 1.5rem;
+            min-height: 100vh;
+            max-height: 100vh;
+            width: 90vw;
+            overflow: scroll;
+            border: 1px solid white;
+            margin-bottom: 2em;
+            background-color: rgb(9, 42, 92);
+            position: fixed;
+            left: -100px;
+            z-index: 2;
+        }
+
+        #navtoggle {
+            grid-column-start: 8;
+            font-size: 1em;
+            position:fixed;
+            color:white;
+           
+        }
+
+        #navmenu {
+            grid-column-start: 1;
+            grid-row-start: 1;
+            align-items: top;
+        }
+
+        #close {
+            display: none;
+        }
+
+        #open {
+            font-size: 2.5rem;
+        }
+
+        .submenu {
+            display: none; 
+        }
+
+        #content {
+            padding: 0 .5em 0 2em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="navpanel">
+        <div id="navtoggle"><span id="open">open me</span>
+        <span id="close">close me</span></div>
+        <div id="navmenu">
+            <p>Nav Menu</p>
+            <ul>
+                <li><a href="jquery-slide-panel.html">Slide Down</a></li>
+                <li><a href="jquery-side-subs.html">Side Submenus</a></li>
+                <li>Link 3</li>
+            </ul>
+        </div>
+    </div>
+
+ <div id = "content">
+    <p></p>
+
+ </div>
+
+    <script>
+        $("#close").click(function () {
+            $("#navpanel").animate({ left: '-900' }, "slow");
+            $("#close").toggle();
+            $("#open").toggle();
+        });
+
+        $("#open").click(function () {
+            $("#navpanel").animate({ left: '0px' }, "slow");
+            $("#close").toggle();
+            $("#open").toggle();
+        });
+
+        $("#mainmenu li a").click(function() {
+            $(this).next(".submenu").toggle();
+        });
+
+    </script>
+
+</body>
+
+</html>
