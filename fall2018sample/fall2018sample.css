@@ -20,6 +20,9 @@ body {
 
 header,
 footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #86af49;
 }
 
@@ -33,47 +36,39 @@ nav, aside {
     background-color: #b5e7a0;
 }
 
-
-/**************
-Your Formatting
-***************/
-
-    /* setting up the mobile grid */
-#wrapper{
-        display:grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        grid-template-areas: "header" 
-        "nav" 
-        "article" 
-        "aside" 
-        "footer";
-}
-
-/* centering content vertically and horizontally */
-header,footer{
-    display:flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .menuitem{
-    background: white;
+    background-color: white;
     margin: 0;
     border-top: 1px solid #b5e7a0;
 }
 
 .submenu{
-    text-decoration:none;
-    margin:0;
-    padding:0;
-    display:none;
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
 }
 
-/* targeting links that are children of the submenu class */
 .submenu li{
-    padding-left:.25rem;
+    padding-left: .25rem;
     background: lightgray;
+}
+
+
+
+/**************
+Your Formatting
+***************/
+
+#wrapper{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    grid-template-areas: 
+    "header"
+    "nav"
+    "article"
+    "aside"
+    "footer";
 }
 
 header{
@@ -96,18 +91,19 @@ footer{
     grid-area: footer;
 }
 
-/* desktop media query*/
-@media screen and (min-width: 720px){
-    #wrapper{
-        margin:auto;
-        width:90vw;
-        max-width: 1200px;
-        min-height: 100vh;
-        grid-template-columns: 1fr 2fr 200px;
-        grid-template-rows: 4rem 1fr 3rem;
-        grid-template-areas: 
-        "header header header"
-        "aside article nav"
-        "footer footer footer" 
-    }
+@media (min-width: 800px) {
+  #wrapper{
+      margin: auto;
+      display: grid;
+      width: 90vw;
+      max-width: 1200px;
+      min-height: 100vh;
+      grid-template-columns: 1fr 2fr 200px;
+      grid-template-rows: 4rem 1fr 3rem;
+      grid-template-areas:
+      "header header header"
+      "aside article nav"
+      "footer footer footer";
+  }
+    
 }
